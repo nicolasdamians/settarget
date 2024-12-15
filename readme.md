@@ -39,6 +39,32 @@ This repository contains a script to dynamically manage a `$target` variable in 
 - The setup script creates a `~/.targetrc` file to store the current `$target` value and ensures it's loaded automatically in each terminal session.
 - The `settarget` script is installed in `/usr/local/bin` for global access.
 
+## Important Note:
+
+After running the settarget command, you need to manually source the ~/.targetrc file in the current terminal to make the $target variable available for the session:
+```bash
+source ~/.targetrc
+```
+
+Alternatively, you can just open a new terminal session, and the variable will be set automatically.
+Example
+
+    Run settarget:
+```bash
+settarget 10.10.169.157
+```
+After running the command, source the ~/.targetrc file:
+```bash
+source ~/.targetrc
+```
+The $target variable should now be set:
+```bash
+echo $target
+```
+Output:
+```bash
+10.10.169.157
+```
 ## Uninstallation
 
 1. Remove the `~/.targetrc` file:
